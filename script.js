@@ -99,10 +99,10 @@ function setupImageSlider() {
         });
     }
     
-    // Auto-advance slides every 4 seconds
+    // Auto-advance slides every 5 seconds
     setInterval(() => {
         showSlide(currentSlide + 1);
-    }, 4000);
+    }, 5000);
     
     // Function to show a specific slide
     function showSlide(index) {
@@ -131,7 +131,7 @@ function setupImageSlider() {
 // Countdown timer to wedding day
 function setupCountdown() {
     // Set the wedding date - April 27, 2025
-    const weddingDate = new Date("April 29, 2025 10:00:00").getTime();
+    const weddingDate = new Date("April 27, 2025 10:00:00").getTime();
     
     // Update the countdown every second
     const countdownTimer = setInterval(function() {
@@ -182,6 +182,12 @@ function setupCountdown() {
 
 // Add to Calendar functionality
 function addToCalendar(eventTitle, eventDate, eventTime, venue) {
+    // Fix for the Wedding Ceremony date
+    if (eventTitle.includes('Wedding Ceremony') && !eventDate.includes('29')) {
+        eventDate = '29 Apr 2025';
+        eventTime = '04:00';
+    }
+    
     const startDateTime = new Date(eventDate + ' ' + eventTime);
     const endDateTime = new Date(startDateTime.getTime() + 3600000); // Add 1 hour for event duration
 
@@ -189,7 +195,7 @@ function addToCalendar(eventTitle, eventDate, eventTime, venue) {
         '&text=' + encodeURIComponent(eventTitle) +
         '&dates=' + startDateTime.toISOString().replace(/-|:|\.\d+/g, '') +
         '/' + endDateTime.toISOString().replace(/-|:|\.\d+/g, '') +
-        '&details=' + encodeURIComponent('Wedding Event in Uttarakhand') +
+        '&details=' + encodeURIComponent('Wedding Event') +
         '&location=' + encodeURIComponent(venue) +
         '&sf=true&output=xml';
 
@@ -201,7 +207,7 @@ function addToCalendar(eventTitle, eventDate, eventTime, venue) {
 
 // Open Google Maps directions
 function openDirections() {
-    window.open('https://maps.app.goo.gl/5VZdSUqnH6Fueuxz9', '_blank');
+    window.open('https://www.google.com/maps/search/?api=1&query=Nimbuchar+Kotdwar+Uttarakhand', '_blank');
 }
 
 // Live stream function

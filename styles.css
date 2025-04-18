@@ -227,6 +227,8 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 16px;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .event-card:before {
@@ -239,12 +241,20 @@ body {
     background-color: var(--primary-color);
 }
 
+.event-card .btn-container {
+    margin-top: auto;
+}
+
 .event-mehndi {
     background-color: #E6D7B9;
 }
 
 .event-haldi {
     background-color: #F2D091;
+}
+
+.event-baande {
+    background-color: #E9EDC9;
 }
 
 .event-wedding {
@@ -348,10 +358,18 @@ footer {
 @media (min-width: 640px) {
     .event-cards {
         flex-direction: row;
+        align-items: stretch;
     }
     
     .event-card {
         flex: 1;
+        min-height: 320px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .event-card .btn-container {
+        margin-top: auto;
     }
 }
 
