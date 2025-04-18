@@ -227,8 +227,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 16px;
     position: relative;
-    display: flex;
-    flex-direction: column;
 }
 
 .event-card:before {
@@ -239,10 +237,6 @@ body {
     width: 4px;
     height: 100%;
     background-color: var(--primary-color);
-}
-
-.event-card .btn-container {
-    margin-top: auto;
 }
 
 .event-mehndi {
@@ -358,18 +352,10 @@ footer {
 @media (min-width: 640px) {
     .event-cards {
         flex-direction: row;
-        align-items: stretch;
     }
     
     .event-card {
         flex: 1;
-        min-height: 320px;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .event-card .btn-container {
-        margin-top: auto;
     }
 }
 
