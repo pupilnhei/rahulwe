@@ -214,11 +214,11 @@ body {
     margin-bottom: 40px;
 }
 
-/* EVENT CARDS - Improved Layout */
+/* EVENT CARDS */
 .event-cards {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
     margin-top: 30px;
 }
 
@@ -228,9 +228,6 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    min-height: 320px;
 }
 
 .event-card:before {
@@ -257,53 +254,6 @@ body {
 
 .event-wedding {
     background-color: #DCEDC2;
-}
-
-.event-details {
-    margin: 15px 0;
-    flex-grow: 1;
-}
-
-.detail-item {
-    margin-bottom: 6px;
-    font-size: 0.95rem;
-}
-
-.event-actions {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.calendar-btn {
-    background-color: #506D2F;
-    color: white;
-    border-radius: 25px;
-    padding: 10px 16px;
-    width: 100%;
-    justify-content: center;
-}
-
-.livestream-btn {
-    background-color: #3182ce;
-    color: white;
-    border-radius: 25px;
-    padding: 10px 16px;
-    width: 100%;
-    justify-content: center;
-}
-
-.calendar-btn:hover {
-    background-color: #3E5525;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.livestream-btn:hover {
-    background-color: #2c5282;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* BUTTONS */
@@ -400,21 +350,20 @@ footer {
 }
 
 /* Media query for larger screens */
-@media (min-width: 768px) {
+@media (min-width: 640px) {
     .event-cards {
         flex-direction: row;
-        flex-wrap: wrap;
     }
     
     .event-card {
-        flex: 1 1 calc(50% - 20px);
-        min-width: 280px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .event-card {
         flex: 1;
+        min-height: 280px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .event-card p {
+        flex-grow: 1;
     }
 }
 

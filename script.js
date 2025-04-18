@@ -1,78 +1,4 @@
-// Add to Calendar functionality
-function addToCalendar(eventTitle, eventDate, eventTime, venue) {
-    // Fix for the Wedding Ceremony date
-    if (eventTitle.includes('Wedding Ceremony') && eventDate === '27 Apr 2025') {
-        eventDate = '29 Apr 2025';
-        eventTime = '04:00';
-    }
-    
-    const startDateTime = new Date(eventDate + ' ' + eventTime);
-    const endDateTime = new Date(startDateTime.getTime() + 3600000); // Add 1 hour for event duration
-
-    const googleCalendarUrl = 'https://www.google.com/calendar/render?action=TEMPLATE' +
-        '&text=' + encodeURIComponent(eventTitle) +
-        '&dates=' + startDateTime.toISOString().replace(/-|:|\.\d+/g, '') +
-        '/' + endDateTime.toISOString().replace(/-|:|\.\d+/g, '') +
-        '&details=' + encodeURIComponent('Wedding Event') +
-        '&location=' + encodeURIComponent(venue) +
-        '&sf=true&output=xml';
-
-    window.open(googleCalendarUrl, '_blank');
-    
-    // Show confirmation
-    showNotification("Event added to your calendar!");
-}
-
-// Open Google Maps directions
-function openDirections() {
-    window.open('https://maps.app.goo.gl/5VZdSUqnH6Fueuxz9', '_blank');
-}
-
-// Live stream function
-function openLiveStream() {
-    alert("Get ready to join our wedding virtually! The livestream link will be available closer to the wedding date.");
-}
-
-// Notification system
-function showNotification(message, type = 'success') {
-    // Create container if it doesn't exist
-    let container = document.querySelector('.notification-container');
-    if (!container) {
-        container = document.createElement('div');
-        container.className = 'notification-container fixed top-4 right-4 z-50 flex flex-col items-end';
-        document.body.appendChild(container);
-    }
-    
-    // Create notification
-    const notification = document.createElement('div');
-    notification.className = `bg-white rounded shadow-md p-4 mb-2 transform translate-x-full transition-transform duration-300 ${type === 'error' ? 'border-l-4 border-red-500' : 'border-l-4 border-green-600'}`;
-    notification.innerHTML = `
-        <div class="flex items-center">
-            <span class="mr-2 text-${type === 'error' ? 'red' : 'green'}-600">
-                <i class="fas fa-${type === 'error' ? 'exclamation-circle' : 'check-circle'}"></i>
-            </span>
-            <p class="text-sm">${message}</p>
-        </div>
-    `;
-    
-    container.appendChild(notification);
-    
-    // Show notification
-    setTimeout(() => {
-        notification.classList.remove('translate-x-full');
-    }, 10);
-    
-    // Hide and remove notification
-    setTimeout(() => {
-        notification.classList.add('translate-x-full');
-        setTimeout(() => {
-            notification.remove();
-            if (container.children.length === 0) {
-                container.remove();
-            }
-        }, 300);
-    }, 4000);
-}// Add loading overlay functions
+// Add loading overlay functions
 function showLoadingOverlay(message) {
     // Create a loading overlay if it doesn't exist
     let overlay = document.querySelector('.loading-overlay');
@@ -252,4 +178,80 @@ function setupCountdown() {
             }
         }
     }, 1000);
+}
+
+// Add to Calendar functionality
+function addToCalendar(eventTitle, eventDate, eventTime, venue) {
+    // Fix for the Wedding Ceremony date
+    if (eventTitle.includes('Wedding Ceremony') && eventDate === '27 Apr 2025') {
+        eventDate = '29 Apr 2025';
+        eventTime = '04:00';
+    }
+    
+    const startDateTime = new Date(eventDate + ' ' + eventTime);
+    const endDateTime = new Date(startDateTime.getTime() + 3600000); // Add 1 hour for event duration
+
+    const googleCalendarUrl = 'https://www.google.com/calendar/render?action=TEMPLATE' +
+        '&text=' + encodeURIComponent(eventTitle) +
+        '&dates=' + startDateTime.toISOString().replace(/-|:|\.\d+/g, '') +
+        '/' + endDateTime.toISOString().replace(/-|:|\.\d+/g, '') +
+        '&details=' + encodeURIComponent('Wedding Event') +
+        '&location=' + encodeURIComponent(venue) +
+        '&sf=true&output=xml';
+
+    window.open(googleCalendarUrl, '_blank');
+    
+    // Show confirmation
+    showNotification("Event added to your calendar!");
+}
+
+// Open Google Maps directions
+function openDirections() {
+    window.open('https://maps.app.goo.gl/5VZdSUqnH6Fueuxz9', '_blank');
+}
+
+// Live stream function
+function openLiveStream() {
+    alert("Get ready to join our wedding virtually! The livestream link will be available closer to the wedding date.");
+}
+
+// Notification system
+function showNotification(message, type = 'success') {
+    // Create container if it doesn't exist
+    let container = document.querySelector('.notification-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.className = 'notification-container fixed top-4 right-4 z-50 flex flex-col items-end';
+        document.body.appendChild(container);
+    }
+    
+    // Create notification
+    const notification = document.createElement('div');
+    notification.className = `bg-white rounded shadow-md p-4 mb-2 transform translate-x-full transition-transform duration-300 ${type === 'error' ? 'border-l-4 border-red-500' : 'border-l-4 border-green-600'}`;
+    notification.innerHTML = `
+        <div class="flex items-center">
+            <span class="mr-2 text-${type === 'error' ? 'red' : 'green'}-600">
+                <i class="fas fa-${type === 'error' ? 'exclamation-circle' : 'check-circle'}"></i>
+            </span>
+            <p class="text-sm">${message}</p>
+        </div>
+    `;
+    
+    container.appendChild(notification);
+    
+    // Show notification
+    setTimeout(() => {
+        notification.classList.remove('translate-x-full');
+    }, 10);
+    
+    // Hide and remove notification
+    setTimeout(() => {
+        notification.classList.add('translate-x-full');
+        setTimeout(() => {
+            notification.remove();
+            if (container.children.length === 0) {
+                container.remove();
+            }
+        }, 300);
+    }, 4000);
 }
