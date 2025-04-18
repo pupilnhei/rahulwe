@@ -99,10 +99,10 @@ function setupImageSlider() {
         });
     }
     
-    // Auto-advance slides every 5 seconds
+    // Auto-advance slides every 4 seconds
     setInterval(() => {
         showSlide(currentSlide + 1);
-    }, 5000);
+    }, 4000);
     
     // Function to show a specific slide
     function showSlide(index) {
@@ -131,7 +131,7 @@ function setupImageSlider() {
 // Countdown timer to wedding day
 function setupCountdown() {
     // Set the wedding date - April 27, 2025
-    const weddingDate = new Date("April 27, 2025 10:00:00").getTime();
+    const weddingDate = new Date("April 29, 2025 10:00:00").getTime();
     
     // Update the countdown every second
     const countdownTimer = setInterval(function() {
