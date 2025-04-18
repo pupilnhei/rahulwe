@@ -182,12 +182,6 @@ function setupCountdown() {
 
 // Add to Calendar functionality
 function addToCalendar(eventTitle, eventDate, eventTime, venue) {
-    // Fix for the Wedding Ceremony date
-    if (eventTitle.includes('Wedding Ceremony') && eventDate === '27 Apr 2025') {
-        eventDate = '29 Apr 2025';
-        eventTime = '04:00';
-    }
-    
     const startDateTime = new Date(eventDate + ' ' + eventTime);
     const endDateTime = new Date(startDateTime.getTime() + 3600000); // Add 1 hour for event duration
 
@@ -195,7 +189,7 @@ function addToCalendar(eventTitle, eventDate, eventTime, venue) {
         '&text=' + encodeURIComponent(eventTitle) +
         '&dates=' + startDateTime.toISOString().replace(/-|:|\.\d+/g, '') +
         '/' + endDateTime.toISOString().replace(/-|:|\.\d+/g, '') +
-        '&details=' + encodeURIComponent('Wedding Event') +
+        '&details=' + encodeURIComponent('Wedding Event in Uttarakhand') +
         '&location=' + encodeURIComponent(venue) +
         '&sf=true&output=xml';
 

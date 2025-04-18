@@ -219,14 +219,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin-top: 30px;
 }
 
 .event-card {
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
     position: relative;
 }
 
@@ -235,7 +234,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 6px;
+    width: 4px;
     height: 100%;
     background-color: var(--primary-color);
 }
@@ -349,7 +348,7 @@ footer {
     justify-content: center;
 }
 
-/* Media query for larger screens */
+/* Mobile first design - responsive adjustments */
 @media (min-width: 640px) {
     .event-cards {
         flex-direction: row;
@@ -357,13 +356,6 @@ footer {
     
     .event-card {
         flex: 1;
-        min-height: 280px;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .event-card p {
-        flex-grow: 1;
     }
 }
 
