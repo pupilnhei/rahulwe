@@ -201,7 +201,7 @@ function addToCalendar(eventTitle, eventDate, eventTime, venue) {
 
 // Open Google Maps directions
 function openDirections() {
-    window.open('https://www.google.com/maps/search/?api=1&query=Nimbuchar+Kotdwar+Uttarakhand', '_blank');
+    window.open('https://maps.app.goo.gl/5VZdSUqnH6Fueuxz9', '_blank');
 }
 
 // Live stream function
